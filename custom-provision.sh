@@ -6,7 +6,7 @@
 
 ### Edit the following arrays to suit your workflow - values must be quoted and separated by newlines or spaces.
 
-DISK_GB_REQUIRED=64
+DISK_GB_REQUIRED=64@@|
 
 MAMBA_PACKAGES=(
     #"package1"
@@ -26,12 +26,12 @@ EXTENSIONS=(
     "https://github.com/fkunn1326/openpose-editor"
     "https://github.com/Gourieff/sd-webui-reactor"
     "https://github.com/Iyashinouta/sd-model-downloader.git" # Model Downloader
-    "https://github.com/Mikubill/sd-webui-controlnet|10bd9b25f62deab9acb256301bbf3363c42645e7" # Controlnet
-    "https://github.com/adieyal/sd-dynamic-prompts|3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # DynPrompts 
-    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111|728ffcec7fa69c83b9e653bf5b96932acdce750f" # Ultimate Upscale
-    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git|70ca3c773199130462b6651364dbd133041be73a" # Multidiffusion
-    "https://github.com/zanllp/sd-webui-infinite-image-browsing|859b28e45e382aca71e8ca7ee24f9b5d267524ac" # Infinite Image browser 
-    "https://github.com/kohya-ss/sd-webui-additional-networks|3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # Additional networks
+    "https://github.com/Mikubill/sd-webui-controlnet" #10bd9b25f62deab9acb256301bbf3363c42645e7" # Controlnet
+    "https://github.com/adieyal/sd-dynamic-prompts" #3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # DynPrompts 
+    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111" #728ffcec7fa69c83b9e653bf5b96932acdce750f" # Ultimate Upscale
+    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git" #70ca3c773199130462b6651364dbd133041be73a" # Multidiffusion
+    "https://github.com/zanllp/sd-webui-infinite-image-browsing" #859b28e45e382aca71e8ca7ee24f9b5d267524ac" # Infinite Image browser 
+    "https://github.com/kohya-ss/sd-webui-additional-networks" #3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # Additional networks
 
 
 CHECKPOINT_MODELS=(
@@ -140,40 +140,22 @@ function provisioning_get_pip_packages() {
         micromamba run -n webui $PIP_INSTALL ${PIP_PACKAGES[@]}
     fi
 }
-
 function provisioning_get_extensions() {
     for repo in "${EXTENSIONS[@]}"; do
-        if [[ "$repo" == *"|"* ]]; then
-            url="${repo%%|*}"
-            commit="${repo##*|}"
-        else
-            url="$repo"
-            commit=""
-        fi
-
-        dir="${url##*/}"
+        dir="${repo##*/}"
         path="/opt/stable-diffusion-webui/extensions/${dir}"
         requirements="${path}/requirements.txt"
-
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} == "true" ]]; then
-                printf "Updating extension: %s...\n" "${url}"
+                printf "Updating extension: %s...\n" "${repo}"
                 ( cd "$path" && git pull )
-                if [[ -n $commit ]]; then
-                    printf "Resetting to commit: %s...\n" "${commit}"
-                    ( cd "$path" && git reset --hard "$commit" )
-                fi
                 if [[ -e $requirements ]]; then
                     micromamba -n webui run ${PIP_INSTALL} -r "$requirements"
                 fi
             fi
         else
-            printf "Downloading extension: %s...\n" "${url}"
-            git clone "${url}" "${path}" --recursive
-            if [[ -n $commit ]]; then
-                printf "Resetting to commit: %s...\n" "${commit}"
-                ( cd "$path" && git reset --hard "$commit" )
-            fi
+            printf "Downloading extension: %s...\n" "${repo}"
+            git clone "${repo}" "${path}" --recursive
             if [[ -e $requirements ]]; then
                 micromamba -n webui run ${PIP_INSTALL} -r "${requirements}"
             fi
