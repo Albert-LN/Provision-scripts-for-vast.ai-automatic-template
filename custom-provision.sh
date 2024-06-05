@@ -18,37 +18,34 @@ PIP_PACKAGES=(
   )
 
 EXTENSIONS=(
-    "https://github.com/Mikubill/sd-webui-controlnet"
     "https://github.com/d8ahazard/sd_dreambooth_extension"
     "https://github.com/deforum-art/sd-webui-deforum"
-    "https://github.com/adieyal/sd-dynamic-prompts"
     "https://github.com/ototadana/sd-face-editor"
     "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
     "https://github.com/hako-mikan/sd-webui-regional-prompter"
-    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111"
     "https://github.com/fkunn1326/openpose-editor"
     "https://github.com/Gourieff/sd-webui-reactor"
-    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git"
-    "https://github.com/zanllp/sd-webui-infinite-image-browsing"
-    "https://github.com/adieyal/sd-dynamic-prompts"
-    "https://github.com/kohya-ss/sd-webui-additional-networks"
-    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111"
-)
+    "https://github.com/Iyashinouta/sd-model-downloader.git" # Model Downloader
+    "https://github.com/Mikubill/sd-webui-controlnet@10bd9b25f62deab9acb256301bbf3363c42645e7" # Controlnet
+    "https://github.com/adieyal/sd-dynamic-prompts@3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # DynPrompts 
+    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111@728ffcec7fa69c83b9e653bf5b96932acdce750f" # Ultimate Upscale
+    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git@70ca3c773199130462b6651364dbd133041be73a" # Multidiffusion
+    "https://github.com/zanllp/sd-webui-infinite-image-browsing@859b28e45e382aca71e8ca7ee24f9b5d267524ac" # Infinite Image browser 
+    "https://github.com/kohya-ss/sd-webui-additional-networks@3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # Additional networks
+
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    "https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" #Protogen v2.2
-    "https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" #Counterfeit v3.0
-    "https://civitai.com/api/download/models/363767?type=Model&format=SafeTensor&size=full&fp=fp16" #HelloYoung 2.5d
-    "https://civitai.com/api/download/models/245691?type=Model&format=SafeTensor&size=pruned&fp=fp16" #BlazingDrive v12g
-    #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
-    #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
-    "https://civitai.com/models/139565/realistic-stock-photo"
-    "https://civitai.com/models/133005?modelVersionId=288982"
-    "https://civitai.com/models/267242?modelVersionId=304060"
-    "https://civitai.com/models/119012?modelVersionId=293405"
-    "https://huggingface.co/dataautogpt3/dpo-sdxl-merged/tree/main"
+    "https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" # Protogen v2.2
+    "https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" # Counterfeit v3.0
+    "https://civitai.com/api/download/models/363767?type=Model&format=SafeTensor&size=full&fp=fp16" # HelloYoung 2.5d
+    "https://civitai.com/api/download/models/245691?type=Model&format=SafeTensor&size=pruned&fp=fp16" #B lazingDrive v12g
+    "https://civitai.com/api/download/models/524032?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Realistic Stock Photo
+    "https://civitai.com/api/download/models/288982?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Juggernaut XL
+    "https://civitai.com/api/download/models/304060?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Proteus
+    "https://civitai.com/api/download/models/293405?type=Model&format=SafeTensor&size=pruned&fp=fp16" # XL blue_pencil-XL
+    "https://huggingface.co/dataautogpt3/dpo-sdxl-merged/tree/main" # XL DPO 
 
 )
 
@@ -60,9 +57,9 @@ VAE_MODELS=(
     "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
     "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
-    "https://huggingface.co/WarriorMama777/OrangeMixs/blob/main/VAEs/orangemix.vae.pt"
-    "https://civitai.com/api/download/models/363767?type=VAE&format=SafeTensor" #for HelloYoung 2.5d
-    "https://civitai.com/api/download/models/245691?type=VAE&format=PickleTensor" #for #BlazingDrive v12g
+    "https://huggingface.co/WarriorMama777/OrangeMixs/blob/main/VAEs/orangemix.vae.pt" # OrangeMix
+    "https://civitai.com/api/download/models/363767?type=VAE&format=SafeTensor" # for HelloYoung 2.5d
+    "https://civitai.com/api/download/models/245691?type=VAE&format=PickleTensor" # for #BlazingDrive v12g
 )
 
 ESRGAN_MODELS=(
@@ -146,20 +143,30 @@ function provisioning_get_pip_packages() {
 
 function provisioning_get_extensions() {
     for repo in "${EXTENSIONS[@]}"; do
-        dir="${repo##*/}"
+        # Извлекаем URL и коммит
+        url="${repo%@*}"
+        commit="${repo#*@}"
+        dir="${url##*/}"
         path="/opt/stable-diffusion-webui/extensions/${dir}"
         requirements="${path}/requirements.txt"
+
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} == "true" ]]; then
-                printf "Updating extension: %s...\n" "${repo}"
+                printf "Updating extension: %s...\n" "${url}"
                 ( cd "$path" && git pull )
+                if [[ -n $commit && $commit != $url ]]; then
+                    ( cd "$path" && git reset --hard "$commit" )
+                fi
                 if [[ -e $requirements ]]; then
                     micromamba -n webui run ${PIP_INSTALL} -r "$requirements"
                 fi
             fi
         else
-            printf "Downloading extension: %s...\n" "${repo}"
-            git clone "${repo}" "${path}" --recursive
+            printf "Downloading extension: %s...\n" "${url}"
+            git clone "${url}" "${path}" --recursive
+            if [[ -n $commit && $commit != $url ]]; then
+                ( cd "$path" && git reset --hard "$commit" )
+            fi
             if [[ -e $requirements ]]; then
                 micromamba -n webui run ${PIP_INSTALL} -r "${requirements}"
             fi
