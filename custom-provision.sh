@@ -37,10 +37,10 @@ EXTENSIONS=(
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    "https://civitai.com/models/3627/protogen-v22-anime-official-release"
-    "https://civitai.com/models/4468/counterfeit-v30"
-    "https://civitai.com/models/4468/counterfeit-v30"
-    "https://civitai.com/models/121083?modelVersionId=245691"
+    "https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" #Protogen v2.2
+    "https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" #Counterfeit v3.0
+    "https://civitai.com/api/download/models/363767?type=Model&format=SafeTensor&size=full&fp=fp16" #HelloYoung 2.5d
+    "https://civitai.com/api/download/models/245691?type=Model&format=SafeTensor&size=pruned&fp=fp16" #BlazingDrive v12g
     #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
@@ -61,6 +61,8 @@ VAE_MODELS=(
     "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
     "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
     "https://huggingface.co/WarriorMama777/OrangeMixs/blob/main/VAEs/orangemix.vae.pt"
+    "https://civitai.com/api/download/models/363767?type=VAE&format=SafeTensor" #for HelloYoung 2.5d
+    "https://civitai.com/api/download/models/245691?type=VAE&format=PickleTensor" #for #BlazingDrive v12g
 )
 
 ESRGAN_MODELS=(
