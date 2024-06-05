@@ -15,7 +15,7 @@ MAMBA_PACKAGES=(
   
 PIP_PACKAGES=(
     "bitsandbytes==0.41.2.post2"
-  )
+  ) 
 
 EXTENSIONS=(
     "https://github.com/d8ahazard/sd_dreambooth_extension"
@@ -143,7 +143,6 @@ function provisioning_get_pip_packages() {
 
 function provisioning_get_extensions() {
     for repo in "${EXTENSIONS[@]}"; do
-        # Извлекаем URL и коммит, если указан
         if [[ "$repo" == *"|"* ]]; then
             url="${repo%%|*}"
             commit="${repo##*|}"
@@ -182,7 +181,7 @@ function provisioning_get_extensions() {
     done
 }
 
-
+ 
 function provisioning_get_models() {
     if [[ -z $2 ]]; then return 1; fi
     dir="$1"
