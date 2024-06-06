@@ -36,7 +36,7 @@ EXTENSIONS=(
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
+    #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" # Protogen v2.2
     #"https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" # Counterfeit v3.0
     #"https://civitai.com/api/download/models/363767?type=Model&format=SafeTensor&size=full&fp=fp16" # HelloYoung 2.5d
@@ -124,7 +124,7 @@ function provisioning_start() {
     
     provisioning_download_config_files
     provisioning_set_webui_version
-    
+
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui && \
     micromamba run -n webui -e LD_PRELOAD=libtcmalloc.so python launch.py \
