@@ -123,6 +123,8 @@ function provisioning_start() {
     FLAGS_COMBINED="${PLATFORM_FLAGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_FLAGS}"
     
     provisioning_download_config_files
+    provisioning_set_webui_version
+    
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui && \
     micromamba run -n webui -e LD_PRELOAD=libtcmalloc.so python launch.py \
@@ -213,6 +215,11 @@ function provisioning_print_header() {
 
 function provisioning_print_end() {
     printf "\nProvisioning complete:  Web UI will start now\n\n"
+}
+
+function provisioning_set_webui_version() {
+    cd /opt/stable-diffusion-webui
+    git reset --hard 4afaaf8a020c1df457bcf7250cb1c7f609699fa7 # 1.6
 }
 
 # Download from $1 URL to $2 file path
