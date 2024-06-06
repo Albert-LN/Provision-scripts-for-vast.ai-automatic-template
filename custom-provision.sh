@@ -24,16 +24,15 @@ EXTENSIONS=(
     "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser"
     "https://github.com/hako-mikan/sd-webui-regional-prompter"
     "https://github.com/fkunn1326/openpose-editor"
-    "https://github.com/Gourieff/sd-webui-reactor"
-    # Model Downloader
-    "https://github.com/Iyashinouta/sd-model-downloader.git"
-    "https://github.com/Mikubill/sd-webui-controlnet" #10bd9b25f62deab9acb256301bbf3363c42645e7" # Controlnet
-    "https://github.com/adieyal/sd-dynamic-prompts" #3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # DynPrompts 
-    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111" #728ffcec7fa69c83b9e653bf5b96932acdce750f" # Ultimate Upscale
-    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git" #70ca3c773199130462b6651364dbd133041be73a" # Multidiffusion
-    "https://github.com/zanllp/sd-webui-infinite-image-browsing" #859b28e45e382aca71e8ca7ee24f9b5d267524ac" # Infinite Image browser 
-    "https://github.com/kohya-ss/sd-webui-additional-networks" #3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # Additional networks
-
+    "https://github.com/Gourieff/sd-webui-reactor" 
+    "https://github.com/Iyashinouta/sd-model-downloader.git" # Model Downloader
+    "https://github.com/Mikubill/sd-webui-controlnet" # 10bd9b25f62deab9acb256301bbf3363c42645e7" # Controlnet
+    "https://github.com/adieyal/sd-dynamic-prompts" # 3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # DynPrompts 
+    "https://github.com/Coyote-A/ultimate-upscale-for-automatic1111" # 728ffcec7fa69c83b9e653bf5b96932acdce750f" # Ultimate Upscale
+    "https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111.git" # 70ca3c773199130462b6651364dbd133041be73a" # Multidiffusion
+    "https://github.com/zanllp/sd-webui-infinite-image-browsing" # 859b28e45e382aca71e8ca7ee24f9b5d267524ac" # Infinite Image browser 
+    "https://github.com/kohya-ss/sd-webui-additional-networks" # 3a6b6ec62bfc71e8b658a561c91627b1bab52fb8" # Additional networks
+)
 
 CHECKPOINT_MODELS=(
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
