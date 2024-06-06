@@ -128,26 +128,45 @@ function provisioning_get_pip_packages() {
 
 function provisioning_get_extensions() {
     for repo in "${EXTENSIONS[@]}"; do
-        dir="${repo##*/}"
+        # Извлекаем URL и коммит, если указан
+        url="${repo%%|*}"
+        commit="${repo##*|}"
+
+        # Если коммит не указан, то переменная commit будет равна url
+        if [[ "$commit" == "$url" ]]; then
+            commit=""
+        fi
+
+        dir="${url##*/}"
         path="/opt/stable-diffusion-webui/extensions/${dir}"
         requirements="${path}/requirements.txt"
+
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} == "true" ]]; then
-                printf "Updating extension: %s...\n" "${repo}"
+                printf "Updating extension: %s...\n" "${url}"
                 ( cd "$path" && git pull )
+                if [[ -n $commit ]]; then
+                    printf "Resetting to commit: %s...\n" "${commit}"
+                    ( cd "$path" && git reset --hard "$commit" )
+                fi
                 if [[ -e $requirements ]]; then
                     micromamba -n webui run ${PIP_INSTALL} -r "$requirements"
                 fi
             fi
         else
-            printf "Downloading extension: %s...\n" "${repo}"
-            git clone "${repo}" "${path}" --recursive
+            printf "Downloading extension: %s...\n" "${url}"
+            git clone "${url}" "${path}" --recursive
+            if [[ -n $commit ]]; then
+                printf "Resetting to commit: %s...\n" "${commit}"
+                ( cd "$path" && git reset --hard "$commit" )
+            fi
             if [[ -e $requirements ]]; then
                 micromamba -n webui run ${PIP_INSTALL} -r "${requirements}"
             fi
         fi
     done
 }
+
 
 function provisioning_get_models() {
     if [[ -z $2 ]]; then return 1; fi
