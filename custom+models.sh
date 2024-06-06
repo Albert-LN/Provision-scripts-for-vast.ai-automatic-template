@@ -37,15 +37,15 @@ EXTENSIONS=(
 CHECKPOINT_MODELS=(
     "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
     "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
-    "https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" # Protogen v2.2
-    "https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" # Counterfeit v3.0
-    "https://civitai.com/api/download/models/363767?type=Model&format=SafeTensor&size=full&fp=fp16" # HelloYoung 2.5d
-    "https://civitai.com/api/download/models/245691?type=Model&format=SafeTensor&size=pruned&fp=fp16" #B lazingDrive v12g
-    "https://civitai.com/api/download/models/524032?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Realistic Stock Photo
-    "https://civitai.com/api/download/models/288982?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Juggernaut XL
-    "https://civitai.com/api/download/models/304060?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Proteus
-    "https://civitai.com/api/download/models/293405?type=Model&format=SafeTensor&size=pruned&fp=fp16" # XL blue_pencil-XL
-    "https://huggingface.co/dataautogpt3/dpo-sdxl-merged/tree/main" # XL DPO 
+    #"https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" # Protogen v2.2
+    #"https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" # Counterfeit v3.0
+    #"https://civitai.com/api/download/models/363767?type=Model&format=SafeTensor&size=full&fp=fp16" # HelloYoung 2.5d
+    #"https://civitai.com/api/download/models/245691?type=Model&format=SafeTensor&size=pruned&fp=fp16" #B lazingDrive v12g
+    #"https://civitai.com/api/download/models/524032?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Realistic Stock Photo
+    #"https://civitai.com/api/download/models/288982?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Juggernaut XL
+    #"https://civitai.com/api/download/models/304060?type=Model&format=SafeTensor&size=full&fp=fp16" # XL Proteus
+    #"https://civitai.com/api/download/models/293405?type=Model&format=SafeTensor&size=pruned&fp=fp16" # XL blue_pencil-XL
+    #"https://huggingface.co/dataautogpt3/dpo-sdxl-merged/tree/main" # XL DPO 
 
 )
 
@@ -187,7 +187,7 @@ function provisioning_get_models() {
     dir="$1"
     mkdir -p "$dir"
     shift
-    if ([[ $DISK_GB_ALLOCATED -ge $DISK_GB_REQUIRED ]]); then
+    if [[ $DISK_GB_ALLOCATED -ge $DISK_GB_REQUIRED ]]; then
         arr=("$@")
     else
         printf "WARNING: Low disk space allocation - Only the first model will be downloaded!\n"
