@@ -35,7 +35,7 @@ EXTENSIONS=(
 )
 
 CHECKPOINT_MODELS=(
-    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
+    #"https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" # Protogen v2.2
     #"https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" # Counterfeit v3.0
@@ -123,7 +123,6 @@ function provisioning_start() {
     FLAGS_COMBINED="${PLATFORM_FLAGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_FLAGS}"
     
     provisioning_download_config_files
-    provisioning_set_webui_version
 
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui && \
