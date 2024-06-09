@@ -1,0 +1,133 @@
+{
+    "created_at": 1717784996.848987,
+    "webui": {
+        "remote": "https://github.com/AUTOMATIC1111/stable-diffusion-webui.git",
+        "commit_hash": "feee37d75f1b168768014e4634dcb156ee649c05",
+        "commit_date": 1716920440,
+        "branch": "master"
+    },
+    "extensions": {
+        "LDSR": {
+            "name": "LDSR",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\LDSR",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "Lora": {
+            "name": "Lora",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\Lora",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "ScuNET": {
+            "name": "ScuNET",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\ScuNET",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "SwinIR": {
+            "name": "SwinIR",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\SwinIR",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "canvas-zoom-and-pan": {
+            "name": "canvas-zoom-and-pan",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\canvas-zoom-and-pan",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "extra-options-section": {
+            "name": "extra-options-section",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\extra-options-section",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "hypertile": {
+            "name": "hypertile",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\hypertile",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "mobile": {
+            "name": "mobile",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\mobile",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "postprocessing-for-training": {
+            "name": "postprocessing-for-training",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\postprocessing-for-training",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "prompt-bracket-checker": {
+            "name": "prompt-bracket-checker",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\prompt-bracket-checker",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        },
+        "soft-inpainting": {
+            "name": "soft-inpainting",
+            "path": "E:\\SMIRNOV-STABLE-DIFFUSION 1.9\\extensions-builtin\\soft-inpainting",
+            "enabled": true,
+            "is_builtin": true,
+            "remote": null,
+            "commit_hash": "",
+            "commit_date": null,
+            "branch": null,
+            "have_info_from_repo": false
+        }
+    },
+    "name": "config-for-vastai"
+}

@@ -35,7 +35,7 @@ EXTENSIONS=(
 )
 
 CHECKPOINT_MODELS=(
-    #"https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
+    "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://civitai.com/api/download/models/4007?type=Model&format=SafeTensor&size=full&fp=fp16" # Protogen v2.2
     #"https://civitai.com/api/download/models/57618?type=Model&format=SafeTensor&size=pruned&fp=fp32" # Counterfeit v3.0
@@ -121,8 +121,6 @@ function provisioning_start() {
     fi
     PROVISIONING_FLAGS="--skip-python-version-check --no-download-sd-model --do-not-download-clip --port 11404 --exit"
     FLAGS_COMBINED="${PLATFORM_FLAGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_FLAGS}"
-    
-    provisioning_download_config_files
 
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui && \
@@ -224,25 +222,6 @@ function provisioning_set_webui_version() {
 # Download from $1 URL to $2 file path
 function provisioning_download() {
     wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
-}
-
-# Function to download config files and replace existing ones
-function provisioning_download_config_files() {
-    config_dir="${WORKSPACE}/storage/stable_diffusion/"
-    mkdir -p "$config_dir"
-    
-    # URLs of the config files
-    config_files=(
-        "https://raw.githubusercontent.com/Albert-LN/Provision-scripts-for-vast.ai-automatic-template/main/config.json"
-        "https://raw.githubusercontent.com/Albert-LN/Provision-scripts-for-vast.ai-automatic-template/main/ui-config.json"
-    )
-    
-    printf "Downloading config files to %s...\n" "$config_dir"
-    for url in "${config_files[@]}"; do
-        printf "Downloading: %s\n" "${url}"
-        provisioning_download "${url}" "${config_dir}"
-        printf "\n"
-    done
 }
 
 provisioning_start

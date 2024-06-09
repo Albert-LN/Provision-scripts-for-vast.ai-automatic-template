@@ -113,8 +113,6 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
-        
-    provisioning_download_config_files
      
     PLATFORM_FLAGS=""
     if [[ $XPU_TARGET = "CPU" ]]; then
@@ -217,25 +215,6 @@ function provisioning_print_end() {
 # Download from $1 URL to $2 file path
 function provisioning_download() {
     wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
-}
-
-# Function to download config files and replace existing ones
-function provisioning_download_config_files() {
-    config_dir="${WORKSPACE}/storage/stable_diffusion/"
-    mkdir -p "$config_dir"
-    
-    # URLs of the config files
-    config_files=(
-        "https://raw.githubusercontent.com/Albert-LN/Provision-scripts-for-vast.ai-automatic-template/main/config.json"
-        "https://raw.githubusercontent.com/Albert-LN/Provision-scripts-for-vast.ai-automatic-template/main/ui-config.json"
-    )
-    
-    printf "Downloading config files to %s...\n" "$config_dir"
-    for url in "${config_files[@]}"; do
-        printf "Downloading: %s\n" "${url}"
-        provisioning_download "${url}" "${config_dir}"
-        printf "\n"
-    done
 }
 
 provisioning_start
