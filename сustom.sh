@@ -121,11 +121,8 @@ function provisioning_start() {
     fi
     PROVISIONING_FLAGS="--skip-python-version-check --no-download-sd-model --do-not-download-clip --port 11404 --exit"
     FLAGS_COMBINED="${PLATFORM_FLAGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_FLAGS}"
-<<<<<<< HEAD
-=======
-    
 
->>>>>>> df5de1203d9e0530a7810fac85eebc1dc68f0cac
+    provisioning_download_custom_config
 
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui && \
@@ -228,6 +225,12 @@ function provisioning_set_webui_version() {
 # Download from $1 URL to $2 file path
 function provisioning_download() {
     wget -qnc --content-disposition --show-progress -e dotbytes="${3:-4M}" -P "$2" "$1"
+}
+
+function provisioning_download_custom_config() {
+    mkdir -p /opt/stable-diffusion-webui/config_states
+    wget -q -O /opt/stable-diffusion-webui/config_states/custom.json \
+        https://raw.githubusercontent.com/Albert-LN/Provision-scripts-for-vast.ai-automatic-template/main/custom.json
 }
 
 provisioning_start
