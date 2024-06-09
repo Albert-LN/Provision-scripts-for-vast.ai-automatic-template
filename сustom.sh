@@ -121,12 +121,18 @@ function provisioning_start() {
     fi
     PROVISIONING_FLAGS="--skip-python-version-check --no-download-sd-model --do-not-download-clip --port 11404 --exit"
     FLAGS_COMBINED="${PLATFORM_FLAGS} $(cat /etc/a1111_webui_flags.conf) ${PROVISIONING_FLAGS}"
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> df5de1203d9e0530a7810fac85eebc1dc68f0cac
 
     # Start and exit because webui will probably require a restart
     cd /opt/stable-diffusion-webui && \
     micromamba run -n webui -e LD_PRELOAD=libtcmalloc.so python launch.py \
         ${FLAGS_COMBINED}
     
+    provisioning_download_config_files
     provisioning_print_end
 }
 
